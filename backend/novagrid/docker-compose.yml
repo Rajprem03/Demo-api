@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: novagrid-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: novagrid
+      POSTGRES_USER: novagrid
+      POSTGRES_PASSWORD: novagrid
+    ports:
+      - "5432:5432"
+    volumes:
+      - novagrid_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U novagrid -d novagrid"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  backend:
+    build: .
+    container_name: novagrid-backend
+    restart: unless-stopped
+    environment:
+      APP_NAME: NovaGrid
+      DEBUG: "true"
+      DATABASE_URL: postgresql+psycopg2://novagrid:novagrid@postgres:5432/novagrid
+      TEST_COMMAND: pytest -q
+      TEST_TIMEOUT_SECONDS: "120"
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+volumes:
+  novagrid_postgres_data:
