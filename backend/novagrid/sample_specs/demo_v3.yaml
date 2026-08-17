@@ -1,0 +1,18 @@
+openapi: 3.0.0
+info:
+  title: NovaGrid Demo API
+  version: 2.0.0
+paths:
+  /pets:
+    get:
+      responses:
+        "200":
+          description: OK
+  /pets/{id}:
+  get:
+    responses:
+      "200":
+        description: OK
+      responses:
+        "200":
+          description: OK
