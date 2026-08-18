@@ -1,0 +1,55 @@
+{
+    "total_files": 3,
+    "total_apis": 5,
+    "apis": [
+        {
+            "file": "test_project\\payment.js",
+            "line": 3,
+            "method": "POST",
+            "url": "https://api.payment.com/payment",
+            "type": "REST_API",
+            "parameters": [],
+            "body": [
+                "amount"
+            ]
+        },
+        {
+            "file": "test_project\\payment.js",
+            "line": 18,
+            "method": "GET",
+            "url": "https://api.payment.com/payment/",
+            "type": "REST_API",
+            "parameters": [],
+            "body": []
+        },
+        {
+            "file": "test_project\\users.js",
+            "line": 3,
+            "method": "GET",
+            "url": "https://api.example.com/users",
+            "type": "REST_API",
+            "parameters": [],
+            "body": []
+        },
+        {
+            "file": "test_project\\users.js",
+            "line": 15,
+            "method": "GET",
+            "url": "https://api.example.com/users/",
+            "type": "REST_API",
+            "parameters": [],
+            "body": []
+        },
+        {
+            "file": "test_project\\weather.py",
+            "line": 7,
+            "method": "GET",
+            "url": "https://api.weather.com/weather",
+            "type": "REST_API",
+            "parameters": [
+                "city"
+            ],
+            "body": []
+        }
+    ]
+}
